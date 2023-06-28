@@ -1,0 +1,347 @@
+@font-face {
+    font-family: "Nabla";
+    src: url("Nabla-variable.woff2") format("woff2-variations");
+  }
+
+  @font-face {
+    font-family: "Rocher";
+    src: url("RocherColorGX.woff2") format("woff2-variations");
+  }
+
+  @keyframes font3d {
+    0% {
+        font-variation-settings: "EDPT" 0, "EHLT" 0;
+    }
+    40% {
+        font-variation-settings: "EDPT" 0, "EHLT" 0;
+    }
+    90% {
+        opacity: 1; scale: 1; filter: blur(0px);
+        font-variation-settings: "EDPT" 200, "EHLT" 24;
+    }
+    100% {
+        opacity: 0; scale: .98; filter: blur(7px);
+        font-variation-settings: "EDPT" 200, "EHLT" 24;
+    }
+}
+
+@font-palette-values --Purple {
+    font-family: Nabla;
+    base-palette: 1;
+    override-colors: 
+    0 #5651FF,
+    1 #4B46D9;
+    @supports(lch(57% 132 329)) {
+        override-colors: 
+        0 lch(44.278% 132 296.455),
+        1 lch(57% 132 329);
+    }
+  }
+
+  .nabla {
+    font-family: 'Nabla';
+    margin: auto;
+    font-size: 70px;
+    font-palette: --Purple;
+    font-variation-settings: "EDPT" 0, "EHLT" 0;
+    animation: font3d linear;
+    animation-timeline: view(block);
+    animation-duration: auto;
+    inset: 0;
+    position: fixed;
+    height: fit-content;
+    width: fit-content;
+    animation-range: contain 0% exit-crossing 100%;
+    animation-fill-mode: both;
+}
+
+.figjam {
+    display: grid;
+    background-image: url(ellipsis.svg);
+            background-size: 24px;
+            background-attachment: fixed;
+            overflow-x: hidden;
+            background-color: white;
+}
+
+        video {
+            background-color: black;
+            height: 100vh;
+            position: absolute;
+            position: sticky;
+            top: 0;
+            inset: 0;
+            clip-path: inset(200px round 10px);
+            animation: uninset linear both;
+            animation-duration: auto;
+            animation-timeline: view();
+            animation-range: entry 100% exit 0%;
+            width: 100%;
+            display: block;
+        }
+
+        .video-container-container {
+            animation: changebgcolor linear both;
+            animation-duration: auto;
+            animation-timeline: view();
+            animation-range: entry 100% exit 0%;
+        }
+
+        @keyframes uninset {
+            0% {
+                clip-path: inset(200px round 10px);
+            }
+            100% {
+                clip-path: inset(0 round 0);
+            }
+        }
+
+        @keyframes changebgcolor {
+            0% {
+                background-color: #cdfb51;
+            }
+            100% {
+                background-color: black;
+            }
+        }
+
+        body {
+            margin: 0;
+            background-color: #cdfb51;
+        }
+
+
+
+        @font-face {
+            font-family: 'lab';
+            src: url(LabDJRCOLRv1-beta-customized.woff2);
+        }
+
+        .chinpokomon-container {
+            background-color: white;
+            background-image: url("videogamebg.png");
+            background-size: cover;
+            width: 400px;
+            height: 400px;
+            position: relative;
+            view-timeline: --scene;
+            view-timeline-inset: 120px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: max-content 1fr;
+            gap: 48px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .chinpokomon-creature {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            margin-inline: auto;
+            /* position: absolute; */
+            animation-timeline: --scene;
+            animation-range: entry 0% entry 100%;
+            top: 0;
+            animation-name: fall;
+            animation-timing-function: linear;
+            animation-fill-mode: both;
+            animation-duration: auto;
+            display: block;
+        }
+
+        .pixelfont {
+            font-size: 62px;
+            font-family: lab;
+            font-variation-settings: "SIZE" 0;
+            animation-name: pixelfont;
+            animation-duration: auto;
+            animation-fill-mode: forwards;
+            animation-timing-function: linear;
+            animation-timeline: view();
+            animation-range: entry 50% entry 100%;
+            font-variation-settings: "SIZE" 94;
+        }
+
+        .animatepixelfont {
+
+        }
+
+
+        @keyframes pixelfont {
+            0% {
+                font-variation-settings: "SIZE" 0;
+            }
+            100% {
+                font-variation-settings: "SIZE" 94;
+            }
+        }
+
+        @keyframes fall {
+            0% {
+                translate: 0 0;
+                rotate: 0deg;
+            }
+            100% {
+                translate: 0 320px;
+                rotate: 360deg;
+            }
+        }
+
+        @property --color1 {
+            syntax: '<color>';
+            inherits: true;
+            initial-value: oklch(33 130.01 300.92);
+        }
+
+        @property --color2 {
+            syntax: '<color>';
+            inherits: true;
+            initial-value: oklch(0.88 0.22 178.11);
+        }
+
+        /* @keyframes changeColors {
+            to {
+                --color1: oklch(33 130.01 300.92);
+                --color2: oklch(0.88 0.22 178.11);
+            }
+        } */
+
+        .scroll-svg {
+            animation: changeColors linear both;
+            animation-duration: auto;
+            animation-timeline: --bigsvgcontainer;
+            margin: auto;
+            position: sticky;
+            height: 20vh;
+            width: auto;
+            top: 40px;
+            animation-range: entry 100% exit 40%;
+        }
+
+        .big-scroll {
+            height: 100vh;
+            view-timeline: --bigsvgcontainer;
+            animation-range: entry 100% exit 100%;
+            display: flex;
+        }
+
+        /* .trackingpixel {
+            height: 40vh;
+        } */
+
+        @keyframes fake {
+    to {
+    scale: 1;
+    }
+    }
+        model-viewer {
+            height: 100vh;
+            width: auto;
+            animation: fake linear both;
+            animation-timeline: view();
+        }
+
+
+        @font-palette-values --Grays {
+  font-family: Rocher;
+  base-palette: 9;
+}
+
+@font-palette-values --Purples {
+  font-family: Rocher;
+  base-palette: 6;
+}
+
+@font-palette-values --Mint {
+  font-family: Rocher;
+  base-palette: 7;
+}
+
+.rocher-container {
+    view-timeline: --rocher;
+    animation-range: exit 0% exit 10%;
+}
+
+.grays {
+  font-family: 'Rocher';
+  font-palette: --Grays;
+  animation: rocherchange linear both;
+  animation-duration: auto;
+    animation-timeline: --rocher;
+    
+}
+
+.purples {
+    font-family: 'Rocher';
+  font-palette: --Purples;
+}
+
+.mint {
+    font-family: 'Rocher';
+  font-palette: --Mint;
+}
+
+@keyframes rocherchange {
+    0% {
+        font-variation-settings: "SHDW" 0, "BVEL" 0;
+    }
+    100% {
+        font-variation-settings: "SHDW" 100, "BVEL" 100;
+    }
+}
+
+.squiggle-scene {
+    view-timeline: --squiggle;
+}
+
+.squiggle {
+            stroke-dasharray: 1082;
+            stroke-dashoffset: 1082;
+            animation: dash linear forwards;
+            animation-duration: auto;
+            animation-timeline: --squiggle;
+            animation-range: entry 55% exit 10%;
+        }
+
+        .squiggle-svg {
+            position: absolute;
+        }
+
+        .pen {
+            offset-path: path("M10 166.992c14.048-40.221 19.665-81.182 48.076-114.58 56.357-66.248 137.083 71.176 164.756 105.987 56.985 71.682 133.328 128.333 225.567 90.622C546.456 208.93 506.606 3.07 814 10.124");
+            offset-distance: 0%;
+            offset-anchor: top left;
+            width: 40px;
+            height: auto;
+            position: absolute;
+            z-index: 2;
+            animation: movePen linear forwards;
+            animation-duration: auto;
+            animation-timeline: --squiggle;
+            animation-range: entry 55% exit 10%;
+        }
+
+        @keyframes movePen {
+            0% {
+                offset-distance: 0%;
+            }
+            100% {
+                offset-distance: 100%;
+            }
+        }
+
+        @keyframes dash {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        .relative {
+            position: relative;
+            margin-inline: auto;
+            margin-top: 140px;
+            width: 804px;
+        }
