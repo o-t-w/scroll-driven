@@ -64,7 +64,7 @@
             background-color: white;
 }
 
-        video {
+        img.container {
             background-color: black;
             height: 100vh;
             position: absolute;
@@ -78,6 +78,7 @@
             animation-range: entry 100% exit 0%;
             width: 100%;
             display: block;
+            object-fit: contain;
         }
 
         .video-container-container {
@@ -108,6 +109,7 @@
         body {
             margin: 0;
             background-color: #cdfb51;
+            overflow-x: hidden;
         }
 
 
@@ -115,17 +117,6 @@
         @font-face {
             font-family: 'lab';
             src: url(LabDJRCOLRv1-beta-customized.woff2);
-        }
-
-        .chinpokomon-container {
-            background-color: white;
-            background-image: url("videogamebg.png");
-            background-size: cover;
-            width: 400px;
-            height: 400px;
-            position: relative;
-            view-timeline: --scene;
-            view-timeline-inset: 120px;
         }
 
         .grid {
@@ -136,15 +127,22 @@
             margin: auto;
         }
 
+        .chinpokomon-background {
+            background-image: url("videogamebg.png");
+            background-size: cover;
+            width: 400px;
+            height: 400px;
+            view-timeline: --scene;
+            view-timeline-inset: 120px;
+        }
+
         .chinpokomon-creature {
             width: 80px;
             height: 80px;
             object-fit: cover;
             margin-inline: auto;
-            /* position: absolute; */
             animation-timeline: --scene;
             animation-range: entry 0% entry 100%;
-            top: 0;
             animation-name: fall;
             animation-timing-function: linear;
             animation-fill-mode: both;
@@ -156,17 +154,14 @@
             font-size: 62px;
             font-family: lab;
             font-variation-settings: "SIZE" 0;
-            animation-name: pixelfont;
-            animation-duration: auto;
-            animation-fill-mode: forwards;
-            animation-timing-function: linear;
-            animation-timeline: view();
-            animation-range: entry 50% entry 100%;
-            font-variation-settings: "SIZE" 94;
+            margin-block: auto;
         }
 
         .animatepixelfont {
-
+            animation-name: pixelfont;
+            animation-iteration-count: 1;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
         }
 
 
@@ -190,25 +185,6 @@
             }
         }
 
-        @property --color1 {
-            syntax: '<color>';
-            inherits: true;
-            initial-value: oklch(33 130.01 300.92);
-        }
-
-        @property --color2 {
-            syntax: '<color>';
-            inherits: true;
-            initial-value: oklch(0.88 0.22 178.11);
-        }
-
-        /* @keyframes changeColors {
-            to {
-                --color1: oklch(33 130.01 300.92);
-                --color2: oklch(0.88 0.22 178.11);
-            }
-        } */
-
         .scroll-svg {
             animation: changeColors linear both;
             animation-duration: auto;
@@ -227,10 +203,6 @@
             animation-range: entry 100% exit 100%;
             display: flex;
         }
-
-        /* .trackingpixel {
-            height: 40vh;
-        } */
 
         @keyframes fake {
     to {
